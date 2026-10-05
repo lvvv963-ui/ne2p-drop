@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>NE2P Drop</title>
+      </head>
+      <body>
+        <h1>🎮 NE2P Drop</h1>
+          <p>Моя первая Telegram Mini App!</p>
+            <button>🎮 Играть</button>
+            </body>
+            </html>
+            <!DOCTYPE html>
+            <html lang="ru">
+            <head>
+              <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>NE2P Drop</title>
+
+                    <style>
+                        body {
+                              margin: 0;
+                                    font-family: Arial, sans-serif;
+                                          background: #111827;
+                                                color: white;
+                                                      text-align: center;
+                                                          }
+
+                                                              .screen {
+                                                                    min-height: 100vh;
+                                                                          display: flex;
+                                                                                flex-direction: column;
+                                                                                      justify-content: center;
+                                                                                            align-items: center;
+                                                                                                  padding: 20px;
+                                                                                                        box-sizing: border-box;
+                                                                                                            }
+
+                                                                                                                h1 {
+                                                                                                                      font-size: 36px;
+                                                                                                                            margin-bottom: 10px;
+                                                                                                                                }
+
+                                                                                                                                    p {
+                                                                                                                                          color: #9ca3af;
+                                                                                                                                                font-size: 18px;
+                                                                                                                                                    }
+
+                                                                                                                                                        button {
+                                                                                                                                                              border: none;
+                                                                                                                                                                    border-radius: 16px;
+                                                                                                                                                                          padding: 18px 45px;
+                                                                                                                                                                                font-size: 20px;
+                                                                                                                                                                                      font-weight: bold;
+                                                                                                                                                                                            cursor: pointer;
+                                                                                                                                                                                                  background: #7c3aed;
+                                                                                                                                                                                                        color: white;
+                                                                                                                                                                                                              margin-top: 25px;
+                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                      button:active {
+                                                                                                                                                                                                                            transform: scale(0.95);
+                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                    #game {
+                                                                                                                                                                                                                                          display: none;
+                                                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                                                                  .coin {
+                                                                                                                                                                                                                                                        font-size: 90px;
+                                                                                                                                                                                                                                                              margin: 30px;
+                                                                                                                                                                                                                                                                    cursor: pointer;
+                                                                                                                                                                                                                                                                          user-select: none;
+                                                                                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                                                                                                  .balance {
+                                                                                                                                                                                                                                                                                        font-size: 28px;
+                                                                                                                                                                                                                                                                                              font-weight: bold;
+                                                                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                                                                                    </style>
+                                                                                                                                                                                                                                                                                                    </head>
+
+                                                                                                                                                                                                                                                                                                    <body>
+
+                                                                                                                                                                                                                                                                                                      <!-- Главное меню -->
+                                                                                                                                                                                                                                                                                                        <div class="screen" id="menu">
+                                                                                                                                                                                                                                                                                                            <h1>🎮 NE2P Drop</h1>
+                                                                                                                                                                                                                                                                                                                <p>Добро пожаловать!</p>
+
+                                                                                                                                                                                                                                                                                                                    <button onclick="startGame()">
+                                                                                                                                                                                                                                                                                                                          🎮 ИГРАТЬ
+                                                                                                                                                                                                                                                                                                                              </button>
+                                                                                                                                                                                                                                                                                                                                </div>
+
+                                                                                                                                                                                                                                                                                                                                  <!-- Игра -->
+                                                                                                                                                                                                                                                                                                                                    <div class="screen" id="game">
+                                                                                                                                                                                                                                                                                                                                        <h1>🪙 NE2P Drop</h1>
+
+                                                                                                                                                                                                                                                                                                                                            <div class="balance">
+                                                                                                                                                                                                                                                                                                                                                  Монеты: <span id="coins">0</span>
+                                                                                                                                                                                                                                                                                                                                                      </div>
+
+                                                                                                                                                                                                                                                                                                                                                          <div class="coin" onclick="collectCoin()">
+                                                                                                                                                                                                                                                                                                                                                                🪙
+                                                                                                                                                                                                                                                                                                                                                                    </div>
+
+                                                                                                                                                                                                                                                                                                                                                                        <button onclick="backToMenu()">
+                                                                                                                                                                                                                                                                                                                                                                              ↩️ Назад
+                                                                                                                                                                                                                                                                                                                                                                                  </button>
+                                                                                                                                                                                                                                                                                                                                                                                    </div>
+
+                                                                                                                                                                                                                                                                                                                                                                                      <script>
+                                                                                                                                                                                                                                                                                                                                                                                          let coins = 0;
+
+                                                                                                                                                                                                                                                                                                                                                                                              function startGame() {
+                                                                                                                                                                                                                                                                                                                                                                                                    document.getElementById("menu").style.display = "none";
+                                                                                                                                                                                                                                                                                                                                                                                                          document.getElementById("game").style.display = "flex";
+                                                                                                                                                                                                                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                                                                                                                                                                                                                                  function collectCoin() {
+                                                                                                                                                                                                                                                                                                                                                                                                                        coins++;
+                                                                                                                                                                                                                                                                                                                                                                                                                              document.getElementById("coins").textContent = coins;
+                                                                                                                                                                                                                                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                      function backToMenu() {
+                                                                                                                                                                                                                                                                                                                                                                                                                                            document.getElementById("game").style.display = "none";
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  document.getElementById("menu").style.display = "flex";
+                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        </script>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        </body>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        
